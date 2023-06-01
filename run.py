@@ -186,12 +186,14 @@ def start():
         return
     if is_img(target_path):
         if predict_image(target_path) > 0.7:
+            print('0000')
             # quit()
         process_img(args['source_img'], target_path, args['output_file'])
         status("swap successful!")
         return
     seconds, probabilities = predict_video_frames(video_path=args['target_path'], frame_interval=100)
     if any(probability > 0.85 for probability in probabilities):
+        print('0000')
         # quit()
     video_name_full = target_path.split("/")[-1]
     video_name = os.path.splitext(video_name_full)[0]
